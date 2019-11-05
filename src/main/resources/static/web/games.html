@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Salvo - ship locations!</title>
+    <!-- development version, includes helpful console warnings -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <link rel="stylesheet" type="text/css" href="games.css">
+</head>
+<body>
+    <div id="vue-instance">
+
+      <table id="leaderboard-table">
+        <th>
+          <td>PLAYER</td>
+          <td>TOTAL</td>
+          <td>WINS</td>
+          <td>LOSSES</td>
+          <td>TIES</td>
+        </th>
+        <tr v-for="player in leaderboardDisplayData">
+            <td> {{player.email}}</td>
+            <td> {{player.total}}</td>
+            <td> {{player.wins}}</td>
+            <td> {{player.losses}}</td>
+            <td> {{player.ties}}</td>
+        </tr>
+      </table>
+
+
+
+
+      <h1> Game #{{ gameID }} </h1>
+      <h1 v-for="gp in gameplayers"> {{gp.player.email}} 
+          <span v-if="gameplayerID == gp.id">(you)</span>
+      </h1>         
+
+        <div id="game-grid">
+
+          <table class="grid-table">
+            <th>
+              <td v-for="col in columns"> {{col}} </td>
+            </th>
+            <tr v-for="row in rows">
+              <th>{{row}}</th>
+              <td v-bind:id="row+col" v-for="col in columns"></td>
+            </tr>
+          </table>
+        
+
+        </div>
+
+
+        <div id="salvoes-grid">
+
+          <table class="grid-table">
+            <th>
+              <td v-for="col in columns"> {{col}} </td>
+            </th>
+            <tr v-for="row in rows">
+              <th>{{row}}</th>
+              <td v-bind:id="'s'+row+col" v-for="col in columns"></td>
+            </tr>
+          </table>
+        
+
+        </div>
+
+
+        <ol>
+            <li v-for="game in games">{{ game }}</li>
+        </ol>
+    </div>
+
+<script src="games.js"></script>
+</body>
+</html>

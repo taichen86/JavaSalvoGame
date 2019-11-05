@@ -1,0 +1,11 @@
+#game-grid table, 
+#salvoes-grid table,
+#leaderboard-table{
+    width: 600px;
+    height: 600px;
+    font-size: 2.5em;
+    text-align: center;
+}
+
+
+
